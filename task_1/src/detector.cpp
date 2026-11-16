@@ -10,7 +10,7 @@ namespace task
 
     // 进行二值化
     cv::Mat binary_img;
-    cv::threshold(gray_img, binary_img, 120, 255, cv::THRESH_BINARY);
+    cv::threshold(gray_img, binary_img, 170, 255, cv::THRESH_BINARY);
 
     // 获取轮廓点
     std::vector<std::vector<cv::Point>> contours;
@@ -101,11 +101,4 @@ namespace task
         return bgr_img(roi);
     }
 
-    void Detector::show_result(cv::Mat & bgr_img, const std::vector<cv::Point2f> &points){
-            std::vector<cv::Point> int_points(points.begin(), points.end());
-            for(int j = 0 ; j < 4; j++){
-            cv::circle(bgr_img, int_points[j], 5, cv::Scalar(0, 255, 255), -1);
-            cv::line(bgr_img, int_points[j], int_points[(j+1) % 4], cv::Scalar(0 ,255, 0), 2);
-            }
-    }
 }

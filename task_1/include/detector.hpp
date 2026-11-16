@@ -12,7 +12,6 @@ class Detector
 {
 public:
   std::vector<Armor> detect(const cv::Mat & bgr_img);
-  void show_result(cv::Mat & bgr_img, const std::vector<cv::Point2f> &points);
 
 private:
   bool check_geometry(const Lightbar & lightbar);
